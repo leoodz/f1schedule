@@ -1,0 +1,17 @@
+{
+    "name": "F1 Schedule",
+    "version": "1.0.0",
+    "description": "Latest F1 Schedule",
+    "manifest_version": 3,
+    "icons": {
+        "128": "logo.png"
+    },
+    "author": "Leoodz (Pham Bao Hung)",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Latest F1 Schedule",
+        "default_icon": {
+            "128": "logo.png"
+        }
+    }
+}
