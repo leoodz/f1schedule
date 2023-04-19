@@ -26,8 +26,6 @@ function showRaces(data) {
     });
 }
 
-
-
 async function getDriverStanding() {
     const localStorageKey = 'driverStanding';
     let data = localStorage.getItem(localStorageKey);
@@ -66,9 +64,9 @@ async function getDriverStanding() {
     document.getElementById("driverStanding").innerHTML = html;
 }
 
-
 async function getConstructorStanding() {
     const localStorageKey = 'constructorStanding';
+
     let data = localStorage.getItem(localStorageKey);
 
     if (!data) {
@@ -78,6 +76,7 @@ async function getConstructorStanding() {
             if (response.ok) {
                 data = await response.json();
                 localStorage.setItem(localStorageKey, JSON.stringify(data));
+                // data = JSON.parse(data);
             } else {
                 console.error(`API error: ${response.status} ${response.statusText}`);
                 return;
@@ -86,8 +85,6 @@ async function getConstructorStanding() {
             console.error("An error occurred while fetching the data.", error);
             return;
         }
-    } else {
-        data = JSON.parse(data);
     }
 
     data = JSON.parse(data);
@@ -104,7 +101,6 @@ async function getConstructorStanding() {
 
     document.getElementById("constructorStanding").innerHTML = html;
 }
-
 
 function showNextRace(item) {
     let index = 0;
@@ -142,7 +138,6 @@ function showNextRace(item) {
         index++;
     }
 }
-
 
 var hours = 24;
 
@@ -182,13 +177,13 @@ function showTimer(date) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        document.getElementById("demo1").innerHTML = "Comming up next: " + days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("demo1").innerHTML = "EXPIRED";
         }
     }, 1000);
 
